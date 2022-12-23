@@ -1,0 +1,829 @@
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*background:#001b47;*/
+    background: radial-gradient(circle, white 5%, #001b47 40%);
+}
+
+.gift2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gift2-title {
+    z-index: 10000;
+    font-size: 3rem;
+    color: black;
+    /* text-align: center; */
+    font-family: 'Lobster', cursive;
+    color: yellow;
+}
+
+
+
+
+
+
+
+/*  */
+
+
+:root {
+    --red1: hsl(345, 100%, 48%);
+    --red2: hsl(345, 100%, 38%);
+    --white1: hsl(0, 0%, 100%);
+    --white2: hsl(0, 0%, 90%);
+    --blue: hsl(215, 100%, 20%);
+}
+
+
+.gift {
+    margin-top: 3rem;
+    --dur: 1.5s;
+    position: relative;
+    width: 18em;
+    height: 18em;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.gift__bow,
+.gift__bow-center,
+.gift__bow-left,
+.gift__bow-right,
+.gift__box,
+.gift__lid,
+.gift__lid-shadow,
+.gift__star {
+    position: absolute;
+}
+
+.gift__bow-center,
+.gift__bow-left,
+.gift__bow-right {
+    background-color: var(--red2);
+}
+
+.gift__bow {
+    animation: bowBounce var(--dur) ease-in-out infinite;
+    bottom: 11em;
+    left: 7.5em;
+    width: 3em;
+    height: 2em;
+    transform-origin: 50% 230%;
+}
+
+.gift__bow-center {
+    border-radius: 1em;
+    width: 100%;
+    height: 100%;
+}
+
+.gift__bow-left,
+.gift__bow-right {
+    box-shadow: 0 0 0 0.7em var(--red1) inset;
+    top: 0.3em;
+    width: 4em;
+    height: 5em;
+    z-index: -1;
+}
+
+.gift__bow-left:before,
+.gift__bow-right:before {
+    background-color: var(--red1);
+    border-radius: inherit;
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+
+.gift__bow-left {
+    animation: bowLeftPivot var(--dur) ease-in-out infinite;
+    border-radius: 1.5em 0 3em 1em / 1.5em 0 3em 3.5em;
+    right: calc(100% - 0.75em);
+    transform: rotate(35deg);
+    transform-origin: 100% 15%;
+}
+
+.gift__bow-left:before {
+    clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.gift__bow-right {
+    animation: bowRightPivot var(--dur) ease-in-out infinite;
+    border-radius: 0 1.5em 1em 3em / 0 1.5em 3.5em 3em;
+    left: calc(100% - 0.75em);
+    transform: rotate(-35deg);
+    transform-origin: 0% 15%;
+}
+
+.gift__bow-right:before {
+    clip-path: polygon(0 12%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.gift__box,
+.gift__lid,
+.gift__lid-shadow {
+    transform-origin: 50% 100%;
+}
+
+.gift__box {
+    animation: boxBounce var(--dur) ease-in-out infinite;
+    background:
+        linear-gradient(var(--red2), var(--red2)) 50% 50% / 3.3em 100% no-repeat,
+        var(--white2);
+    border-radius: 1.5em;
+    bottom: 0.5em;
+    left: 3.3em;
+    overflow: hidden;
+    width: 11.4em;
+    height: 9em;
+}
+
+.gift__lid,
+.gift__lid-shadow {
+    border-radius: 1em;
+    width: 13em;
+    height: 3.3em;
+}
+
+.gift__lid {
+    animation: lidBounce var(--dur) ease-in-out infinite;
+    background:
+        linear-gradient(var(--red1), var(--red1)) 50% 50% / 3.3em 100% no-repeat,
+        var(--white1);
+    bottom: 8.7em;
+    left: 2.5em;
+}
+
+.gift__lid-shadow {
+    animation: lidShadowBounce var(--dur) ease-in-out infinite;
+    background-color: hsla(0, 0%, 0%, 0.1);
+    top: -1.5em;
+    left: -1em;
+}
+
+.gift__star {
+    animation: starRotateCW var(--dur) ease-in infinite;
+    background-color: var(--white1);
+    clip-path: polygon(50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+    transform: scale(0);
+}
+
+.gift__star--2,
+.gift__star--4,
+.gift__star--5 {
+    animation-name: starRotateCCW;
+}
+
+.gift__star--1 {
+    animation-delay: calc(var(--dur) * 0.5);
+    top: 0;
+    left: 12.5em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.gift__star--2 {
+    animation-delay: calc(var(--dur) * 0.125);
+    top: 2em;
+    left: 10em;
+    width: 1.75em;
+    height: 1.75em;
+}
+
+.gift__star--3 {
+    animation-delay: calc(var(--dur) * 0.25);
+    top: 8em;
+    left: 0;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.gift__star--4 {
+    top: 10.5em;
+    right: 0;
+    width: 1.75em;
+    height: 1.75em;
+}
+
+.gift__star--5 {
+    animation-delay: calc(var(--dur) * 0.375);
+    top: 12em;
+    left: 1.8em;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/* Animations */
+@keyframes bowBounce {
+
+    from,
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+
+    62.5% {
+        animation-timing-function: ease-in;
+        transform: translateY(75%) rotate(0);
+    }
+
+    68.75% {
+        animation-timing-function: ease-out;
+        transform: translateY(-37.5%) rotate(15deg);
+    }
+
+    75% {
+        animation-timing-function: ease-in-out;
+        transform: translateY(-150%) rotate(5deg);
+    }
+
+    87.5% {
+        transform: translateY(65%) rotate(-3deg);
+    }
+
+    to {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes bowLeftPivot {
+
+    from,
+    50% {
+        transform: rotate(35deg);
+    }
+
+    62.5% {
+        transform: rotate(45deg);
+    }
+
+    75% {
+        transform: rotate(30deg);
+    }
+
+    87.5% {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(35deg);
+    }
+}
+
+@keyframes bowRightPivot {
+
+    from,
+    50% {
+        transform: rotate(-35deg);
+    }
+
+    62.5% {
+        transform: rotate(-45deg);
+    }
+
+    75% {
+        transform: rotate(-34deg);
+    }
+
+    87.5% {
+        transform: rotate(-45deg);
+    }
+
+    to {
+        transform: rotate(-35deg);
+    }
+}
+
+@keyframes boxBounce {
+
+    from,
+    50% {
+        transform: translateY(0) scale(1, 1);
+    }
+
+    62.5% {
+        transform: translateY(4%) scale(1.12, 0.89);
+    }
+
+    75% {
+        transform: translateY(-11%) scale(0.92, 1.1);
+    }
+
+    87.5% {
+        transform: translateY(0) scale(1.05, 0.9);
+    }
+
+    to {
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+@keyframes lidBounce {
+
+    from,
+    50% {
+        transform: translateY(0) scale(1, 1) rotate(0);
+    }
+
+    62.5% {
+        animation-timing-function: ease-in;
+        transform: translateY(45%) scale(1.14, 0.95) rotate(0);
+    }
+
+    68.75% {
+        animation-timing-function: ease-out;
+        transform: translateY(-22.5%) scale(1.05, 1.03) rotate(15deg);
+    }
+
+    75% {
+        animation-timing-function: ease-in-out;
+        transform: translateY(-90%) scale(0.96, 1.1) rotate(5deg);
+    }
+
+    87.5% {
+        transform: translateY(30%) scale(1.12, 0.93) rotate(-3deg);
+    }
+
+    to {
+        transform: translateY(0) scale(1, 1) rotate(0);
+    }
+}
+
+@keyframes lidShadowBounce {
+
+    from,
+    50% {
+        transform: translateY(0) scale(1, 1) rotate(0);
+    }
+
+    62.5% {
+        animation-timing-function: ease-in;
+        transform: translateY(10%) scale(1.14, 0.95) rotate(0);
+    }
+
+    68.75% {
+        animation-timing-function: ease-out;
+        transform: translateY(-10%) scale(1.05, 1.03) rotate(15deg);
+    }
+
+    75% {
+        animation-timing-function: ease-in-out;
+        transform: translateY(-30%) scale(0.96, 1.1) rotate(5deg);
+    }
+
+    87.5% {
+        transform: translateY(10%) scale(1.12, 0.93) rotate(-3deg);
+    }
+
+    to {
+        transform: translateY(0) scale(1, 1) rotate(0);
+    }
+}
+
+@keyframes starRotateCW {
+    from {
+        transform: scale(0) rotate(0);
+    }
+
+    25% {
+        animation-timing-function: ease-out;
+        transform: scale(1) rotate(0.25turn);
+    }
+
+    50%,
+    to {
+        transform: scale(0) rotate(0.5turn);
+    }
+}
+
+@keyframes starRotateCCW {
+    from {
+        transform: scale(0) rotate(0);
+    }
+
+    25% {
+        animation-timing-function: ease-out;
+        transform: scale(1) rotate(-0.25turn);
+    }
+
+    50%,
+    to {
+        transform: scale(0) rotate(-0.5turn);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+.merry-christmas img {
+    width: 100px;
+}
+
+.cardz {
+    -webkit-perspective: 1500px;
+    -moz-perspective: 1500px;
+    perspective: 1500px;
+    position: absolute;
+    left: calc(50% - 125px);
+    top: calc(50% - 200px);
+    /* transform: translate(-50%, -50%); */
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition-delay: initial;
+    -moz-transition-delay: initial;
+    transition-delay: initial;
+    -webkit-transform: rotate(-10deg) translate(0, 0);
+    -moz-transform: rotate(-10deg) translate(0, 0);
+    -ms-transform: rotate(-10deg) translate(0, 0);
+    -o-transform: rotate(-10deg) translate(0, 0);
+    transform: rotate(-10deg) translate(0, 0);
+    -webkit-animation: cardIn 1s alternate cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    -moz-animation: cardIn 1s alternate cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    animation: cardIn 1s alternate cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+
+@media (max-width: 767px) {
+    .cardz {
+        left: calc(50% - 115px);
+        top: calc(50% - 164.5px);
+    }
+}
+
+@media (max-width: 479px) {
+    .cardz {
+        left: calc(50% - 75px);
+        top: calc(50% - 150px);
+    }
+}
+
+.cardz:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 500px #000;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.cardz.is-opened {
+    -webkit-transform: rotate(0deg) translate(125px, 0);
+    -moz-transform: rotate(0deg) translate(125px, 0);
+    -ms-transform: rotate(0deg) translate(125px, 0);
+    -o-transform: rotate(0deg) translate(125px, 0);
+    transform: rotate(0deg) translate(125px, 0);
+}
+
+@media (max-width: 767px) {
+    .cardz.is-opened {
+        -webkit-transform: rotate(0deg) translate(115px, 0);
+        -moz-transform: rotate(0deg) translate(115px, 0);
+        -ms-transform: rotate(0deg) translate(115px, 0);
+        -o-transform: rotate(0deg) translate(115px, 0);
+        transform: rotate(0deg) translate(115px, 0);
+    }
+}
+
+@media (max-width: 479px) {
+    .cardz.is-opened {
+        -webkit-transform: rotate(0deg) translate(75px, 0);
+        -moz-transform: rotate(0deg) translate(75px, 0);
+        -ms-transform: rotate(0deg) translate(75px, 0);
+        -o-transform: rotate(0deg) translate(75px, 0);
+        transform: rotate(0deg) translate(75px, 0);
+    }
+}
+
+.cardz.is-opened .cart-page-front {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+@keyframes cardIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: rotate(-10deg) translate(0, -100%);
+        -moz-transform: rotate(-10deg) translate(0, -100%);
+        -ms-transform: rotate(-10deg) translate(0, -100%);
+        -o-transform: rotate(-10deg) translate(0, -100%);
+        transform: rotate(-10deg) translate(0, -100%);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(-10deg) translate(0, 0);
+        -moz-transform: rotate(-10deg) translate(0, 0);
+        -ms-transform: rotate(-10deg) translate(0, 0);
+        -o-transform: rotate(-10deg) translate(0, 0);
+        transform: rotate(-10deg) translate(0, 0);
+    }
+}
+
+.cardz,
+.card-page {
+    width: 320px;
+    height: 420px;
+}
+
+@media (max-width: 767px) {
+
+    .cardz,
+    .card-page {
+        width: 230px;
+        height: 329px;
+    }
+}
+
+@media (max-width: 479px) {
+
+    .cardz,
+    .card-page {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+.card-page {
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    outline: 1px solid transparent;
+}
+
+.cart-page-front {
+    -webkit-transform-origin: 0 50% 0;
+    -moz-transform-origin: 0 50% 0;
+    -ms-transform-origin: 0 50% 0;
+    -o-transform-origin: 0 50% 0;
+    transform-origin: 0 50% 0;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateY(-20deg);
+    -moz-transform: rotateY(-20deg);
+    -ms-transform: rotateY(-20deg);
+    -o-transform: rotateY(-20deg);
+    transform: rotateY(-20deg);
+    z-index: 2;
+}
+
+.cart-page-outside,
+.cart-page-inside {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+}
+
+.cart-page-outside {
+    border: 10px solid #fbfbfb;
+    background: #1165ae url("/public/assets/images/cardg2.gif") no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+    .cart-page-outside {
+        border: 5px solid #fbfbfb;
+    }
+}
+
+.cart-page-inside,
+.cart-page-bottom {
+    background-color: #f9f9f9;
+    background-image: url("/public/assets/images/pattern.png");
+    border: 20px solid #f9f9f9;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    /* text-align: center; */
+    flex-direction: column;
+}
+
+@media (max-width: 767px) {
+
+    .cart-page-inside,
+    .cart-page-bottom {
+        border: 10px solid #f9f9f9;
+    }
+}
+
+.cart-page-inside {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    border-right: none !important;
+    background-position: 0px 80px;
+}
+
+@media (max-width: 767px) {
+    .cart-page-inside {
+        background-position: 0px 30px;
+    }
+}
+
+@media (max-width: 479px) {
+    .cart-page-inside {
+        background-position: 0px 30px;
+    }
+}
+
+.cart-page-bottom {
+    z-index: 1;
+    border-left: none !important;
+    background-position: -22px 80px;
+}
+
+@media (max-width: 767px) {
+    .cart-page-bottom {
+        background-position: 85px 30px;
+    }
+}
+
+@media (max-width: 479px) {
+    .cart-page-bottom {
+        background-position: 0px 30px;
+    }
+}
+
+.cart-page-bottom .merry-christmas img {
+    width: 200px;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .cart-page-bottom .merry-christmas img {
+        width: 150px;
+    }
+}
+
+@media (max-width: 479px) {
+    .cart-page-bottom .merry-christmas img {
+        width: 150px;
+    }
+}
+
+p {
+    font-family: "Architects Daughter", cursive;
+    font-size: 20px;
+    line-height: 1.2em;
+    padding: 15px;
+    color: #3c4a85;
+}
+
+@media (max-width: 767px) {
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 479px) {
+    p {
+        font-size: 14px;
+    }
+}
+
+.click-text {
+    font-size: 6px;
+    font-family: "Architects Daughter", cursive;
+}
+
+.click-icon {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    bottom: 20px;
+    -webkit-animation: iconAnimation 1s infinite alternate ease-in-out;
+    -moz-animation: iconAnimation 1s infinite alternate ease-in-out;
+    animation: iconAnimation 1s infinite alternate ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.click-icon svg {
+    width: 96px;
+    height: 96px;
+}
+
+@media (max-width: 767px) {
+    .click-icon svg {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+@media (max-width: 479px) {
+    .click-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.click-icon.is-hidden {
+    opacity: 0;
+}
+
+@keyframes iconAnimation {
+    0% {
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%, 10px);
+        -moz-transform: translate(-50%, 10px);
+        -ms-transform: translate(-50%, 10px);
+        -o-transform: translate(-50%, 10px);
+        transform: translate(-50%, 10px);
+    }
+}
+
+.cart-page-bottom>.pEnd {
+    align-self: flex-end;
+    padding-right: 3rem;
+}
+
+.cart-page-bottom>.pFirst {
+    align-self: flex-start;
+
+}
+
+p {
+    margin-bottom: 0;
+}

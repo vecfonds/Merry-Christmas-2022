@@ -1,0 +1,124 @@
+#loadingpage {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #240229;
+    z-index: -100; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+
+    z-index: 100000;
+    font-family: 'Poppins', sans-serif;
+    background: #75E1FF;
+}
+
+
+
+.loader {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.bar-wrapper {
+    background-color: #75e1ff;
+    height: 25rem;
+    width: 15rem;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.bar {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFAFA;
+    z-index: 2;
+    border-radius: .5rem;
+    transition: height 100ms ease;
+}
+
+.fa-snowman,
+.fa-igloo {
+    position: absolute;
+    top: -29px;
+    color: white;
+    font-size: 30px;
+}
+
+.fa-snowman {
+    left: 50px;
+}
+
+.fa-igloo {
+    right: 50px;
+}
+
+.bar-progress {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.flake {
+    position: absolute;
+    z-index: 1;
+    animation: fall 3s linear forwards;
+    color: white;
+    font-size: .75rem;
+}
+
+
+@keyframes fall {
+    0% {
+        top: 0px
+    }
+
+    100% {
+        top: calc(100% - .75rem)
+    }
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 900px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1500px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+
+.displaynone {
+    display: none;
+}

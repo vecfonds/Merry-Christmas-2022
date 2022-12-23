@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.main {
+    background: url("/public/assets/images/Christmas-BG.jpg") center center fixed no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+}
+
+.mask {
+    background: rgba(0, 80, 135, 0.777);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.text {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block;
+    font-family: 'Sacramento', cursive;
+    font-size: 12vw;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    color: white;
+    padding-top: 15vh;
+    z-index: 1;
+    text-shadow: 0px 0px 8px white;
+}
+
+.santa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 45vh;
+    max-width: 320px;
+    animation: move 12s linear infinite;
+    z-index: 2;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-50vw, 30vh) rotate(-20deg);
+    }
+
+    50% {
+        transform: translate(100vw, 0vh) rotate(-20deg);
+    }
+
+    51% {
+        transform: translate(100vw, 90vh) rotate(20deg) scaleX(-1);
+    }
+
+    100% {
+        transform: translate(-100vw, -100vh) rotate(20deg) scaleX(-1);
+    }
+}
+
+.snow {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+span {
+    color: transparent;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+}
+
+.o {
+    font-size: 6vw;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    animation: fallo 8s ease-in infinite;
+    animation-fill-mode: forwards;
+    width: 7vw;
+}
+
+span:nth-of-type(1) {
+    animation-delay: 0.5s;
+    animation-duration: 3.5s;
+}
+
+.o:nth-of-type(2) {
+    animation-delay: 1s;
+    animation-duration: 6s;
+}
+
+.o:nth-of-type(3) {
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+}
+
+@keyframes fallo {
+    0% {
+        transform: translate(-110vw, -90vh);
+    }
+
+    100% {
+        transform: translate(30vw, 110vh) rotate(360deg);
+    }
+}
+
+.r {
+    font-size: 6vh;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    animation: fallr 4s ease-in infinite;
+    animation-fill-mode: forwards;
+    width: 7vw;
+}
+
+.r:nth-of-type(6) {
+    animation-delay: 1s;
+    animation-duration: 4.5s;
+}
+
+.r:nth-of-type(7) {
+    animation-delay: 0.5s;
+    animation-duration: 3.8s;
+}
+
+span:nth-of-type(8) {
+    animation-delay: 0.5s;
+    animation-duration: 6s;
+}
+
+@keyframes fallr {
+    0% {
+        transform: translate(45vw, -80vh);
+    }
+
+    100% {
+        transform: translate(-5vw, 80vh) rotate(360deg);
+    }
+}
+
+.m {
+    font-size: 6vw;
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    animation: fallm 8s ease-in infinite;
+    animation-fill-mode: forwards;
+    width: 7vw;
+    margin: 5vw;
+}
+
+span:nth-of-type(10) {
+    animation-delay: 1s;
+    animation-duration: 4.5s;
+}
+
+span:nth-of-type(12) {
+    animation-delay: 0.5s;
+    animation-duration: 3.5s;
+}
+
+span:nth-of-type(11) {
+    animation-delay: 1.5s;
+    animation-duration: 7s;
+}
+
+@keyframes fallm {
+    0% {
+        transform: translate(2vw, -110vh);
+    }
+
+    100% {
+        transform: translate(10vw, 50vh) rotate(360deg);
+    }
+}

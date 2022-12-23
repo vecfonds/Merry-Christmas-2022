@@ -1,0 +1,125 @@
+section {
+    position: relative;
+    background: url("/public/assets/images/backgroundg3.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10000;
+}
+
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/public/assets/images/bg2g3.jpeg");
+    mix-blend-mode: screen;
+}
+
+.snow1 {
+    animation: animateSnow1 15s linear infinite;
+}
+
+.snow2 {
+    animation: animateSnow2 10s linear infinite;
+}
+
+.snow3 {
+    animation: animateSnow3 15s linear infinite;
+}
+
+@keyframes animateSnow1 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 800px 450px;
+    }
+}
+
+@keyframes animateSnow2 {
+    0% {
+        background-position: 0 0;
+        filter: blur(2px);
+    }
+
+    100% {
+        background-position: 800px 450px;
+        filter: blur(2px);
+    }
+}
+
+@keyframes animateSnow3 {
+    0% {
+        background-position: 0 0;
+        transform: scale(5);
+    }
+
+    100% {
+        background-position: 0 450px;
+        transform: scale(5);
+    }
+}
+
+.youtubeBtn {
+    position: fixed;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 20px;
+    cursor: pointer;
+    transition: all .3s;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    background: #000;
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.youtubeBtn i {
+    font-size: 20px;
+    float: left;
+}
+
+.youtubeBtn a {
+    color: #ff0000;
+    animation: youtubeAnim 1000ms linear infinite;
+    float: right;
+}
+
+.youtubeBtn a:hover {
+    color: #c9110f;
+    transition: all .3s ease-in-out;
+}
+
+.youtubeBtn i:active {
+    transform: scale(.9);
+    transition: all .3s ease-in-out;
+}
+
+.youtubeBtn span {
+    font-family: 'Lato';
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    float: right;
+    line-height: 20px;
+    padding-left: 5px;
+
+}
+
+@keyframes youtubeAnim {
+
+    0%,
+    100% {
+        color: #c9110f;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+}
